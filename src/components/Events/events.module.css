@@ -1,42 +1,57 @@
-/* Основной контейнер секции */
 .container {
     width: 100%;
-    padding: 40px 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
     background-color: var(--background);
     color: var(--foreground);
-    text-align: center;
 }
 
-/* Заголовок */
-.title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+.content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
 }
 
-/* Контейнер для горизонтального скролла */
 .eventsWrapper {
     overflow-x: auto;
-    scrollbar-width: thin; /* Поддержка Firefox */
-    scrollbar-color: var(--accentColor) transparent;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
     padding-bottom: 10px;
+    position: relative;
 }
 
-/* Убираем стандартный скролл для Webkit (Chrome, Safari) */
+.eventsWrapper:hover {
+    scrollbar-color: var(--accentColor) transparent;
+}
+
+/* Для браузеров на основе WebKit (Chrome, Safari) */
 .eventsWrapper::-webkit-scrollbar {
-    height: 8px;
+    height: 2px;
 }
 
 .eventsWrapper::-webkit-scrollbar-thumb {
     background: var(--accentColor);
-    border-radius: 10px;
+    border-radius: 3px;
+    /* Более заметное закругление */
+    opacity: 0;
+    /* Изначально невидимый */
+    transition: opacity 0.3s ease;
+}
+
+.eventsWrapper:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+    /* При наведении появляется */
 }
 
 .eventsWrapper::-webkit-scrollbar-track {
     background: transparent;
 }
 
-/* Лента карточек событий */
 .eventsList {
     display: flex;
     gap: 20px;
@@ -44,93 +59,4 @@
     white-space: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-}
-
-/* Карточка события */
-.eventCard {
-    background: var(--secondaryBackground);
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    min-width: 280px;
-    max-width: 300px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Информация о командах */
-.teamInfo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.teamInfo img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-/* Счет */
-.score {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--accentColor);
-}
-
-/* Детали матча */
-.eventDetails {
-    font-size: 0.9rem;
-    color: var(--secondaryText);
-    margin: 10px 0;
-}
-
-/* Кнопка "Подробнее" */
-.eventLink {
-    display: inline-block;
-    padding: 8px 12px;
-    margin-top: 10px;
-    border-radius: 8px;
-    background: var(--accentColor);
-    color: var(--foreground);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.eventLink:hover {
-    background: var(--foreground);
-    color: var(--accentColor);
-    transform: scale(1.05);
-}
-
-/* 📌 Адаптивность */
-@media (max-width: 768px) {
-    .eventCard {
-        min-width: 250px;
-        max-width: 270px;
-    }
-
-    .teamInfo {
-        font-size: 0.9rem;
-    }
-
-    .score {
-        font-size: 1.1rem;
-    }
-}
-
-@media (pointer: coarse) {
-    .eventLink {
-        font-size: 1rem;
-        padding: 10px 15px;
-    }
 }

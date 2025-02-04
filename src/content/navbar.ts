@@ -1,4 +1,4 @@
-interface NavbarLink {
+type NavbarLink = {
     name: string;
     link: string;
 }

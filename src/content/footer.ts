@@ -1,4 +1,4 @@
-interface LinksType {
+type LinksType = {
     name: string;
     link: string;
 }
@@ -50,7 +50,7 @@ export const footerLinks: FooterLink[] = [
                 link: "/"
             },
             {
-                name: "Политика конфиденциальности",
+                name: "Конфидециальность",
                 link: "/"
             }
         ]

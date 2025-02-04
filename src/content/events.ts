@@ -1,33 +1,21 @@
-type TeamType = {
-    name: string;
-    imageSrc: string;
-    goal: number;
-};
+import { GameType } from "@/types/gameType";
 
-type GameType = {
-    team1: TeamType;
-    team2: TeamType;
-    location: string;
-    date: string;
-    time: string;
-};
-
-interface EventsProps {
+export interface EventsProps {
     game: GameType;
     link: string;
 }
 
 export const events: EventsProps[] = [
     {
-        game: { 
+        game: {
             team1: {
                 name: "Kairat",
-                imageSrc: "/content/teams/kairat.png",
+                imageSrc: "/content/teams/almaty.svg",
                 goal: 1
             },
             team2: {
                 name: "Astana",
-                imageSrc: "/content/teams/astana.png",
+                imageSrc: "/content/teams/astana.svg",
                 goal: 2
             },
             location: "Almaty",
@@ -37,75 +25,75 @@ export const events: EventsProps[] = [
         link: "/#"
     },
     {
-        game: { 
+        game: {
             team1: {
-                name: "Aktobe",
-                imageSrc: "/content/teams/aktobe.png",
-                goal: 3
-            },
-            team2: {
-                name: "Shakhter",
-                imageSrc: "/content/teams/shakhter.png",
+                name: "Kairat",
+                imageSrc: "/content/teams/almaty.svg",
                 goal: 1
             },
-            location: "Karaganda",
-            date: "2021-11-05",
-            time: "17:30"
+            team2: {
+                name: "Astana",
+                imageSrc: "/content/teams/astana.svg",
+                goal: 2
+            },
+            location: "Almaty",
+            date: "2021-10-10",
+            time: "19:00"
         },
         link: "/#"
     },
     {
-        game: { 
+        game: {
             team1: {
-                name: "Tobol",
-                imageSrc: "/content/teams/tobol.png",
-                goal: 2
+                name: "Kairat",
+                imageSrc: "/content/teams/almaty.svg",
+                goal: 1
             },
             team2: {
-                name: "Ordabasy",
-                imageSrc: "/content/teams/ordabasy.png",
+                name: "Astana",
+                imageSrc: "/content/teams/astana.svg",
                 goal: 2
             },
-            location: "Kostanay",
-            date: "2021-12-01",
-            time: "15:00"
+            location: "Almaty",
+            date: "2021-10-10",
+            time: "19:00"
         },
         link: "/#"
     },
     {
-        game: { 
+        game: {
             team1: {
-                name: "Zhetysu",
-                imageSrc: "/content/teams/zhetysu.png",
-                goal: 0
+                name: "Kairat",
+                imageSrc: "/content/teams/almaty.svg",
+                goal: 1
             },
             team2: {
-                name: "Taraz",
-                imageSrc: "/content/teams/taraz.png",
-                goal: 3
+                name: "Astana",
+                imageSrc: "/content/teams/astana.svg",
+                goal: 2
             },
-            location: "Taldykorgan",
-            date: "2022-01-15",
-            time: "18:45"
+            location: "Almaty",
+            date: "2021-10-10",
+            time: "19:00"
         },
         link: "/#"
     },
     {
-        game: { 
+        game: {
             team1: {
-                name: "Caspiy",
-                imageSrc: "/content/teams/caspiy.png",
-                goal: 2
+                name: "Kairat",
+                imageSrc: "/content/teams/almaty.svg",
+                goal: 1
             },
             team2: {
-                name: "Atyrau",
-                imageSrc: "/content/teams/atyrau.png",
-                goal: 4
+                name: "Astana",
+                imageSrc: "/content/teams/astana.svg",
+                goal: 2
             },
-            location: "Aktau",
-            date: "2022-02-20",
-            time: "16:20"
+            location: "Almaty",
+            date: "2021-10-10",
+            time: "19:00"
         },
         link: "/#"
-    }
+    },
 ];

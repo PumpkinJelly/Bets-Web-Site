@@ -11,7 +11,7 @@ import styles from "./navbar.module.css";
 import { navbarLinks } from "@/content/navbar";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
-import ActionButtons from "../ActionButtons";
+import SocialLinks from "../SocialLinks";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </div>
-                <ActionButtons showDownloadLink={false} />
+                <SocialLinks />
                 <div className={styles.burgerMenu} onClick={toggleMenu}>
                     <span />
                     <span />

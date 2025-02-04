@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    color: var(--foreground);
+}
+
+.content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--secondaryBackground);
+    border-radius: 12px;
+}

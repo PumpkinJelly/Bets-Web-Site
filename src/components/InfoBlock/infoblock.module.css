@@ -1,0 +1,37 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    color: var(--foreground);
+}
+
+.content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondaryBackground);
+    border-radius: 12px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.content p {
+    text-align: left;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .content p {
+        text-align: center;
+    }
+}

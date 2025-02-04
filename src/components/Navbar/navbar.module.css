@@ -1,0 +1,139 @@
+.navbarContainer {
+    width: 100%;
+    height: 70px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.navbarContent {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    width: 180px;
+    height: auto;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+    .logo {
+        width: 110px;
+        height: auto;
+    }
+}
+
+.navbarLinks {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbarLinks a {
+    text-decoration: none;
+    color: var(--foreground);
+    font-size: 14px;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbarLinks a:hover {
+    color: var(--accentColor);
+}
+
+
+
+.burgerMenu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.burgerMenu span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--foreground);
+    transition: background-color 0.2s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .burgerMenu {
+        display: flex;
+    }
+
+    .navbarLinks {
+        display: none;
+    }
+}
+
+.fullscreenMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+    color: var(--foreground);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.menuHeader {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeIcon {
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--foreground);
+}
+
+.menuLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.menuLinks a {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.menuLinks a:hover {
+    color: var(--accentColor);
+}

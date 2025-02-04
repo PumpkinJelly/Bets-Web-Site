@@ -1,0 +1,40 @@
+.heroContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    width: 100%;
+}
+
+.heroWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 60vh;
+    max-height: 500px !important;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.heroImage {
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .heroContainer {
+        padding: 0;
+    }
+
+    .heroWrapper {
+        width: 100vw;
+        max-width: none;
+        height: 80vh;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 530px) {
+    .heroWrapper {
+        height: 50vh;
+    }
+}

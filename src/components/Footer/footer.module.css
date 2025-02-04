@@ -1,0 +1,131 @@
+/* Основные стили футера */
+.container {
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+/* Стили для списка ссылок */
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.linksSection {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* Отступы между элементами внутри секции */
+}
+
+.linksSection h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--foreground);
+}
+
+/* Убираем стандартные маркеры у списка */
+.linksSection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Отступ между ссылками */
+}
+
+/* Оформление элементов списка */
+.linksSection li {
+    display: flex;
+    align-items: center;
+}
+
+/* Ссылки */
+.link a {
+    text-decoration: none;
+    color: var(--foreground);
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.link a:hover {
+    color: var(--accentColor);
+    transform: scale(1.02);
+    transition: 0.3s ease-in, transform 0.2s ease-in-out;
+}
+
+
+/* Бренд + соцсети */
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+}
+
+/* Адаптивный логотип */
+.brand img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .links {
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .links {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .linksSection {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .brand img {
+        max-width: 120px;
+    }
+}
+
+/* Оптимизация для сенсорных экранов */
+@media (pointer: coarse) {
+    .link a {
+        font-size: 1.2rem;
+        padding: 12px 0;
+    }
+
+    .brand img {
+        max-width: 100px;
+    }
+}

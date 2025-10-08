@@ -1,38 +1,55 @@
-/**
- * EventCard Component
- * 
- * Developer: Nelcosoft Sp. z o.o.
- * website: https://nelcosoft.com
- * 
- **/
+"use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./eventCard.module.css";
 import { EventsProps } from "@/content/events";
 import Image from "next/image";
+import BetPopup from "../Popup"; // подключаем попап
 
 const EventCard: React.FC<{ event: EventsProps }> = ({ event }) => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   return (
     <div className={styles.card}>
       <div className={styles.top}>
         <div className={styles.team}>
-          <Image src={event.game.team1.imageSrc} alt={event.game.team1.name} width={40} height={40} />
+          <Image
+            src={event.game.team1.imageSrc}
+            alt={event.game.team1.name}
+            width={40}
+            height={40}
+          />
           <span>{event.game.team1.name}</span>
         </div>
-        <span className={styles.score}>VS
-        </span>
+        <span className={styles.score}>VS</span>
         <div className={styles.team}>
           <span>{event.game.team2.name}</span>
-          <Image src={event.game.team2.imageSrc} alt={event.game.team2.name} width={40} height={40} />
+          <Image
+            src={event.game.team2.imageSrc}
+            alt={event.game.team2.name}
+            width={40}
+            height={40}
+          />
         </div>
       </div>
+
       <div className={styles.middle}>
         <p>{event.game.location}</p>
-        <p>{event.game.date} - {event.game.time}</p>
+        <p>
+          {event.game.date} - {event.game.time}
+        </p>
       </div>
+
       <div className={styles.bottom}>
-        <a href={event.link} className={styles.eventLink}>Принять участие</a>
+        <button onClick={openPopup} className={styles.eventLink}>
+          Принять участие
+        </button>
       </div>
+
+      {isPopupOpen && <BetPopup onClose={closePopup} />}
     </div>
   );
 };

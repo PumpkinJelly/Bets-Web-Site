@@ -1,57 +1,55 @@
 import os
 import django
+from django.core.asgi import get_asgi_application
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials, firestore, initialize_app
+from fastapi.middleware.wsgi import WSGIMiddleware
+from fastapi.responses import JSONResponse
 import firebase_admin
-from django.core.asgi import get_asgi_application
 
-# Указываем настройки Django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bets_backend.settings")
 django.setup()
 
-# Инициализация Firebase
-cred_path = os.path.join(os.path.dirname(__file__), "..", "firebase-key.json")
-if not firebase_admin._apps:
-    if os.path.exists(cred_path):
-        cred = credentials.Certificate(cred_path)
-        firebase_admin.initialize_app(cred)
-        print("✅ Firebase initialized successfully.")
-    else:
-        print("⚠️ Firebase key not found!")
-db = firestore.client()
+# Django ASGI
+django_app = get_asgi_application()
 
-# --- Создаем FastAPI ---
-app = FastAPI(title="Django + FastAPI Unified Server")
+# FastAPI app
+fastapi_app = FastAPI(title="Bets API")
 
-# --- Разрешаем доступ фронтенду (Next.js) ---
-app.add_middleware(
+# CORS middleware
+fastapi_app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Firebase init
+if not firebase_admin._apps:
+    cred_path = os.path.join(os.path.dirname(__file__), "..", "firebase-key.json")
+    if os.path.exists(cred_path):
+        cred = credentials.Certificate(cred_path)
+        initialize_app(cred)
+        print("✅ Firebase initialized successfully.")
+    else:
+        print("⚠️ Firebase key not found! Place firebase-key.json in the backend folder.")
 
-# --- Роуты FastAPI ---
-@app.get("/api/ping/")
-def ping():
-    return {"message": "✅ Django + FastAPI running together!"}
+db = firestore.client()
 
+@fastapi_app.post("/api/place_bet")
+async def place_bet(data: dict):
+    try:
+        print("📩 Incoming bet:", data)
+        db.collection("bets").add(data)
+        return JSONResponse({"success": True, "message": "Bet placed successfully"})
+    except Exception as e:
+        print("🔥 Error:", e)
+        return JSONResponse({"success": False, "error": str(e)})
 
-@app.post("/api/join/")
-def join_user(user: dict):
-    db.collection("participants").add(user)
-    return {"status": "success", "user": user}
+# Combine FastAPI + Django
+from starlette.middleware.wsgi import WSGIMiddleware
+fastapi_app.mount("/", WSGIMiddleware(django_app))
 
-
-@app.get("/api/participants/")
-def get_participants():
-    docs = db.collection("participants").stream()
-    return [doc.to_dict() for doc in docs]
-
-
-# --- Django ASGI (монтируем напрямую) ---
-django_app = get_asgi_application()
-app.mount("/django", django_app)
+app = fastapi_app

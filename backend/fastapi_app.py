@@ -1,17 +1,13 @@
-import os
-import django
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from firebase_admin import firestore
+import firebase_admin
+from firebase_admin import credentials
+import os
 
-# Настраиваем Django окружение
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bets_backend.settings")
-django.setup()
+app = FastAPI()
 
-# Создаём FastAPI-приложение
-app = FastAPI(title="Bets API (FastAPI)")
-
-# Разрешаем фронтенду обращаться (например, localhost:3000)
+# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -20,22 +16,39 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Firebase init
+if not firebase_admin._apps:
+    cred_path = os.path.join(os.path.dirname(__file__), "firebase-key.json")
+    if os.path.exists(cred_path):
+        cred = credentials.Certificate(cred_path)
+        firebase_admin.initialize_app(cred)
+        print("✅ Firebase initialized successfully.")
+    else:
+        print("⚠️ Firebase key not found! Place firebase-key.json in backend folder.")
 
-# Пример модели запроса
-class JoinRequest(BaseModel):
-    username: str
-    match_id: int
+db = firestore.client()
 
+@app.post("/api/place_bet")
+async def place_bet(request: Request):
+    try:
+        data = await request.json()
+        print("📩 Incoming bet:", data)
 
-# Пример ручки
-@app.post("/api/join/")
-def join_match(data: JoinRequest):
-    # Можно тут вызвать Django ORM, Firestore и т.д.
-    print(f"✅ {data.username} joined match {data.match_id}")
-    return {"status": "success", "user": data.username, "match_id": data.match_id}
+        team = data.get("team")
+        amount = data.get("amount")
+        comment = data.get("comment")
 
+        if not team or not amount:
+            return {"success": False, "error": "Missing fields"}
 
-# Пример проверки
-@app.get("/api/ping/")
-def ping():
-    return {"message": "FastAPI connected with Django!"}
+        db.collection("bets").add({
+            "team": team,
+            "amount": amount,
+            "comment": comment,
+        })
+        print("✅ Bet saved in Firestore.")
+
+        return {"success": True, "message": "Bet placed successfully."}
+    except Exception as e:
+        print("🔥 Error in /api/place_bet:", e)
+        return {"success": False, "error": str(e)}

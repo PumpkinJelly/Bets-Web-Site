@@ -1,41 +1,43 @@
-
 import { useTranslations } from "next-intl";
 import ContentBlock from "../ContentBlock";
 import styles from "./aboutUs.module.css";
 
 export default function AboutUs() {
-  const t = useTranslations("AboutUs");
-    return (
-        <section className={styles.container}>
-            <div className={styles.content}>
-                <ContentBlock
-                    title={t("title")}
-                    description={t("content")}
-                    imageSrc="/images/soccer-with-logo.png"
-                    alt="О нас"
-                />
-                <ContentBlock
-                    title="История проекта"
-                    description="Халык Лига возникла из желания сделать спорт доступным для всех, независимо от возраста, опыта или подготовки. С момента запуска проект объединяет аматоров и профессионалов, друзей, коллег, семьи и единомышленников. Всё началось с небольших турниров, где главным был дух дружбы, здоровая конкуренция и единение, а не призовой фонд"
-                    alt="Наша миссия"
-                />
-                <ContentBlock
-                    title="Наш первый турнир стартовал с призовым фондом всего 30 тысяч тенге"
-                    description="Это было символично – маленький бюджет, но огромные амбиции. Мы стремились создать площадку, доступную для всех, где игроки могли проявить себя, а болельщики насладиться настоящей страстью к игре. Формат турнира – короткие матчи по 9 минут – оказался идеальным: динамика, азарт и равные возможности для всех участников."
-                    imageSrc="/images/cup.png"
-                    alt="Наши ценности"
-                />
-                <ContentBlock
-                    description="Со временем, благодаря поддержке участников и вовлеченности болельщиков, турниры начали привлекать больше внимания. В команду организаторов стали приходить единомышленники – те, кто разделял наши ценности и верил в потенциал Халык Лиги. Призовые фонды росли, улучшалось качество организации, добавлялись новые форматы и дисциплины."
-                    imageSrc="/images/player.png"
-                    alt="Команда"
-                />
-                <ContentBlock
-                    description="Что началось как локальное мероприятие, стало настоящим сообществом, где каждый чувствует себя частью большой спортивной семьи. Сегодня Халык Лига объединяет не только игроков, но и зрителей, которые с радостью приводят сюда своих друзей и семьи."
-                />
-            </div>
-        </section>
-    );
-};
+  const t = useTranslations("about");
 
+  return (
+    <section className={styles.container}>
+      <div className={styles.content}>
+        <ContentBlock
+          title={t("title")}
+          description={t("description")}
+          imageSrc="/images/soccer-with-logo.png"
+          alt={t("title")}
+        />
 
+        <ContentBlock
+          title={t("historyTitle")}
+          description={t("historyDescription")}
+          alt={t("historyTitle")}
+        />
+
+        <ContentBlock
+          title={t("firstTournamentTitle")}
+          description={t("firstTournamentDescription")}
+          imageSrc="/images/cup.png"
+          alt={t("firstTournamentTitle")}
+        />
+
+        <ContentBlock
+          description={t("growthDescription")}
+          imageSrc="/images/player.png"
+          alt={t("title")}
+        />
+
+        <ContentBlock
+          description={t("communityDescription")}
+        />
+      </div>
+    </section>
+  );
+}

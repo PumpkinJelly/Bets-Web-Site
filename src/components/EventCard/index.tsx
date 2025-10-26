@@ -5,9 +5,11 @@ import styles from "./eventCard.module.css";
 import { EventsProps } from "@/content/events";
 import Image from "next/image";
 import BetPopup from "../Popup"; // подключаем попап
+import { useTranslations } from "next-intl";
 
 const EventCard: React.FC<{ event: EventsProps }> = ({ event }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const t = useTranslations("event");
 
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
@@ -45,7 +47,7 @@ const EventCard: React.FC<{ event: EventsProps }> = ({ event }) => {
 
       <div className={styles.bottom}>
         <button onClick={openPopup} className={styles.eventLink}>
-          Принять участие
+          {t("button")}
         </button>
       </div>
 

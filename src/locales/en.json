@@ -1,0 +1,48 @@
+{
+    "navbar": {
+        "schedule": "Schedule",
+        "statistics": "Statistics",
+        "news": "News",
+        "gallery": "Gallery",
+        "contacts": "Contacts"
+    },
+    "event": {
+        "title": "Future matches",
+        "button": "Place a bet"
+    },
+    "about": {
+        "title": "About us",
+        "description": "The Halyk League is a sports project that unites fans of an active lifestyle, sports and team spirit.We create a space where participants can reach their potential, make new acquaintances and improve their health through participation in competitions and events.",
+        "historyTitle": "Project history",
+        "historyDescription": "The Halyk League arose from the desire to make sports accessible to everyone, regardless of age, experience or training. Since its launch, the project has brought together amateurs and professionals, friends, colleagues, families and like-minded people. It all started with small tournaments where the main thing was the spirit of friendship, healthy competition and unity, not the prize pool.",
+        "firstTournamentTitle": "Our first tournament started with a prize pool of only 30 thousand tenge",
+        "firstTournamentDescription": "It was symbolic – a small budget, but huge ambitions. We aimed to create a platform accessible to everyone, where the players could express themselves and the fans could enjoy the real passion for the game. The format of the tournament – short matches of 9 minutes each – turned out to be ideal: dynamics, excitement and equal opportunities for all participants.",
+        "growthDescription": "Over time, thanks to the support of participants and the involvement of fans, tournaments began to attract more attention. Like–minded people began to join the organizing team - those who shared our values and believed in the potential of the Halyk League. The prize funds grew, the quality of the organization improved, new formats and disciplines were added.",
+        "communityDescription": "What started as a local event has become a real community where everyone feels like part of a large sports family. Today, the Halyk League unites not only players, but also viewers who are happy to bring their friends and families here."
+    },
+    "services": {
+        "mainDirectionsTitle": "Main Directions",
+        "tournamentsTitle": "Mini-football Tournaments",
+        "rewardsTitle": "Rewards and Nominations",
+        "educationTitle": "Support for Young Athletes",
+        "podcastTitle": "Podcast & Game Analysis",
+        "mainFeaturesTitle": "Main Features",
+        "matchesTitle": "9-minute Matches",
+        "matchesDescription": "A 9-minute dynamic format that allows each participant to show their skills and feel the excitement of the game. The format makes tournaments bright, intense, and accessible even for those with little time.",
+        "shootingTitle": "Participation in Filming",
+        "shootingDescription": "Football film projects inspired by the tournament events.",
+        "varTitle": "VAR System",
+        "varDescription": "Helps us ensure fair and accurate match results."
+    },
+    "partners": {
+        "awardsText": "Multiple nominations and year-end awards — gifts from sponsors and much more",
+        "partnersTitle": "Our Partners",
+        "communityDescription": "Halyk League is more than just sport! It’s a lifestyle — a path to self-improvement and a community of people who believe in the power of unity. Join us!"
+    },
+    "footer": {
+        "title": "About us",
+        "description": "The eir potentialitions and events.",
+        "historyTitle": "Project history",
+        "historyDescription": "The Halyk League arose from the darnament started with a prize pool of only 30 thousand tenge"
+    }
+}

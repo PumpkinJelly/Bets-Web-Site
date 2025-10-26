@@ -1,27 +1,35 @@
-type NavbarLink = {
-    name: string;
-    link: string;
-}
+"use client";
 
-export const navbarLinks: NavbarLink[] = [
+import { useTranslations } from "next-intl";
+
+type NavbarLink = {
+  name: string;
+  link: string;
+};
+
+export function useNavbarLinks(): NavbarLink[] {
+  const t = useTranslations("navbar");
+
+  return [
     {
-        name: "Расписание",
-        link: "/"
+      name: t("schedule"),
+      link: "/"
     },
     {
-        name: "Статистика",
-        link: "/"
+      name: t("statistics"),
+      link: "/"
     },
     {
-        name: "Блог и Новости",
-        link: "/#"
+      name: t("news"),
+      link: "/#"
     },
     {
-        name: "Галерея",
-        link: "/#"
+      name: t("gallery"),
+      link: "/#"
     },
     {
-        name: "Контакты",
-        link: "/#"
+      name: t("contacts"),
+      link: "/#"
     }
-]
+  ];
+}

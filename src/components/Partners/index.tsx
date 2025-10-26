@@ -9,12 +9,15 @@
 import Image from "next/image";
 import styles from "./partners.module.css";
 import { partners } from "@/content/partners";
+import { useTranslations } from "next-intl";
 
 const Partners = () => {
+    const t = useTranslations("partners");
+
     return (
         <section className={styles.container}>
             <div className={styles.content}>
-                <h1 className={styles.title}>Наши партнеры</h1>
+                <h1 className={styles.title}>{t("partnersTitle")}</h1>
                 <div className={styles.partnersGrid}>
                     {partners.map((partner, index) => (
                         <div key={index} className={styles.partner}>

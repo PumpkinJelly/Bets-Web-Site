@@ -4,9 +4,10 @@ import Hero from "@/components/Hero";
 import InfoBlock from "@/components/InfoBlock";
 import Offerings from "@/components/Offerings";
 import Partners from "@/components/Partners";
-import { halykLiga, highlights } from "@/content/info";
+import { useInfoBlocks } from "@/content/info";
 
 export default function Home() {
+  const { halykLiga, highlights } = useInfoBlocks();
 
   return (
     <>

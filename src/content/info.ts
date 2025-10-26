@@ -1,18 +1,26 @@
 import { ElementType } from "react";
 import { FaCrown, FaHeart } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export interface InfoBlockProps {
-    description: string;
-    icon: ElementType;
-    backgroundColor?: string;
+  description: string;
+  icon: ElementType;
+  backgroundColor?: string;
 }
 
-export const highlights: InfoBlockProps = {
-    description: "Множественные номинации и итоги года - подарки от спонсоров и многое другое",
-    icon: FaCrown,
-};
+// Хук, возвращающий переводы из messages/[locale].json
+export function useInfoBlocks() {
+  const t = useTranslations("partners");
 
-export const halykLiga: InfoBlockProps = {
-    description: "Халык-Лига - это больше, чем спорт! Это стиль жизни, путь к самосовершенствованию и сообщество тех, кто верит в силу единства. Присоединяйтесь к нам!",
+  const highlights: InfoBlockProps = {
+    description: t("awardsText"),
+    icon: FaCrown,
+  };
+
+  const halykLiga: InfoBlockProps = {
+    description: t("communityDescription"),
     icon: FaHeart,
-};
+  };
+
+  return { highlights, halykLiga };
+}

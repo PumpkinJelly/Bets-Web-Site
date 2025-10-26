@@ -1,16 +1,23 @@
-import { FeaturesItemProps } from "@/types/featuresItemProps";
+"use client";
 
-export const features: FeaturesItemProps[] = [
+import { FeaturesItemProps } from "@/types/featuresItemProps";
+import { useTranslations } from "next-intl";
+
+export function useFeatures(): FeaturesItemProps[] {
+  const t = useTranslations("services"); 
+
+  return [
     {
-        title:"9-минутные матчи",
-        description:"9-минутные инамичный формат, который позволяет каждому участнику раскрыть свои способности и почувствовать азарт игры. Такой формат делает соревнования яркими, насыщенными и доступными даже для тех, у кого мало времени"
+      title: t("matchesTitle"),
+      description: t("matchesDescription"),
     },
     {
-        title:"Участие в съемках",
-        description:"фильма о футболе, по мотивам всего турнира!"
+      title: t("shootingTitle"),
+      description: t("shootingDescription"),
     },
     {
-        title:"VAR-система",
-        description:"что помогает нам выявлять справедливый результат"
-    }
-];
+      title: t("varTitle"),
+      description: t("varDescription"),
+    },
+  ];
+}

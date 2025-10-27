@@ -40,9 +40,27 @@
         "communityDescription": "Halyk League is more than just sport! It’s a lifestyle — a path to self-improvement and a community of people who believe in the power of unity. Join us!"
     },
     "footer": {
-        "title": "About us",
-        "description": "The eir potentialitions and events.",
-        "historyTitle": "Project history",
-        "historyDescription": "The Halyk League arose from the darnament started with a prize pool of only 30 thousand tenge"
+        "navigationTitle": "Navigation",
+        "navigationLinks": {
+            "about": "About us",
+            "schedule": "Schedule",
+            "statistics": "Statistics",
+            "blog": "Blog and News",
+            "gallery": "Gallery"
+        },
+        "supportTitle": "Support",
+        "supportLinks": {
+            "faq": "FAQ",
+            "help": "Help",
+            "rules": "Rules",
+            "privacy": "Privacy Policy"
+        },
+        "partnersTitle": "Partners",
+        "partnersLinks": {
+            "partners": "Partners",
+            "sponsors": "Sponsors",
+            "affiliate": "Affiliate Program"
+        },
+        "copyright": "All rights reserved."
     }
 }

@@ -1,75 +1,47 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 type LinksType = {
-    name: string;
-    link: string;
-}
+  name: string;
+  link: string;
+};
 
 interface FooterLink {
-    title: string;
-    links: LinksType[];
+  title: string;
+  links: LinksType[];
 }
 
-export const footerLinks: FooterLink[] = [
+export function useFooterLinks(): FooterLink[] {
+  const t = useTranslations("footer");
+
+  return [
     {
-        title: "Навигация",
-        links: [
-            {
-                name: "О нас",
-                link: "/"
-            },
-            {
-                name: "Расписание",
-                link: "/"
-            },
-            {
-                name: "Статистика",
-                link: "/"
-            },
-            {
-                name: "Блонг и новости",
-                link: "/"
-            },
-            {
-                name: "Галерея",
-                link: "/"
-            }
-        ]
+      title: t("navigationTitle"),
+      links: [
+        { name: t("navigationLinks.about"), link: "/" },
+        { name: t("navigationLinks.schedule"), link: "/" },
+        { name: t("navigationLinks.statistics"), link: "/" },
+        { name: t("navigationLinks.blog"), link: "/" },
+        { name: t("navigationLinks.gallery"), link: "/" }
+      ]
     },
     {
-        title: "Поддержка",
-        links: [
-            {
-                name: "FAQ",
-                link: "/"
-            },
-            {
-                name: "Помощь",
-                link: "/"
-            },
-            {
-                name: "Правила",
-                link: "/"
-            },
-            {
-                name: "Конфидециальность",
-                link: "/"
-            }
-        ]
+      title: t("supportTitle"),
+      links: [
+        { name: t("supportLinks.faq"), link: "/" },
+        { name: t("supportLinks.help"), link: "/" },
+        { name: t("supportLinks.rules"), link: "/" },
+        { name: t("supportLinks.privacy"), link: "/" }
+      ]
     },
     {
-        title: "Партнеры",
-        links: [
-            {
-                name: "Партнеры",
-                link: "/"
-            },
-            {
-                name: "Спонсоры",
-                link: "/"
-            },
-            {
-                name: "Партнерская программа",
-                link: "/"
-            }
-        ]
+      title: t("partnersTitle"),
+      links: [
+        { name: t("partnersLinks.partners"), link: "/" },
+        { name: t("partnersLinks.sponsors"), link: "/" },
+        { name: t("partnersLinks.affiliate"), link: "/" }
+      ]
     }
-]
+  ];
+}

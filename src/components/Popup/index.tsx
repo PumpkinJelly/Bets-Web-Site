@@ -4,10 +4,14 @@ import React, { useState } from "react";
 import styles from "./betpopup.module.css";
 
 interface BetPopupProps {
+  match: {
+    team1: { name: string; logo: string };
+    team2: { name: string; logo: string };
+  }
   onClose: () => void;
 }
 
-const BetPopup: React.FC<BetPopupProps> = ({ onClose }) => {
+const BetPopup: React.FC<BetPopupProps> = ({ match, onClose }: BetPopupProps) => {
   const [team, setTeam] = useState<string>("");
   const [amount, setAmount] = useState<number | null>(null);
   const [comment, setComment] = useState<string>("");
@@ -55,26 +59,21 @@ const BetPopup: React.FC<BetPopupProps> = ({ onClose }) => {
         <div className={styles.group}>
           <label className={styles.label}>Выберите команду:</label>
           <div className={styles.options}>
-            <label>
-              <input
-                type="radio"
-                name="team"
-                value="team1"
-                checked={team === "team1"}
-                onChange={() => setTeam("team1")}
-              />{" "}
-              Команда 1
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="team"
-                value="team2"
-                checked={team === "team2"}
-                onChange={() => setTeam("team2")}
-              />{" "}
-              Команда 2
-            </label>
+            <div
+              className={`${styles.teamCard} ${team === "team1" ? styles.selected : ""}`}
+              onClick={() => setTeam("team1")}
+            >
+              <img src={match.team1.logo} alt={match.team1.name} />
+              <p>{match.team1.name}</p>
+            </div>
+            
+            <div
+              className={`${styles.teamCard} ${team === "team2" ? styles.selected : ""}`}
+              onClick={() => setTeam("team2")}
+            >
+              <img src={match.team2.logo} alt={match.team2.name} />
+              <p>{match.team2.name}</p>
+            </div>
           </div>
         </div>
 

@@ -60,16 +60,16 @@ const BetPopup: React.FC<BetPopupProps> = ({ match, onClose }: BetPopupProps) =>
           <label className={styles.label}>Выберите команду:</label>
           <div className={styles.options}>
             <div
-              className={`${styles.teamCard} ${team === "team1" ? styles.selected : ""}`}
-              onClick={() => setTeam("team1")}
+              className={`${styles.teamCard} ${team === match.team1.name ? styles.selected : ""}`}
+              onClick={() => setTeam(match.team1.name)}
             >
               <img src={match.team1.logo} alt={match.team1.name} />
               <p>{match.team1.name}</p>
             </div>
             
             <div
-              className={`${styles.teamCard} ${team === "team2" ? styles.selected : ""}`}
-              onClick={() => setTeam("team2")}
+              className={`${styles.teamCard} ${team === match.team2.name ? styles.selected : ""}`}
+              onClick={() => setTeam(match.team2.name)}
             >
               <img src={match.team2.logo} alt={match.team2.name} />
               <p>{match.team2.name}</p>

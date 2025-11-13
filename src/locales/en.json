@@ -3,8 +3,8 @@
         "schedule": "Schedule",
         "statistics": "Statistics",
         "news": "News",
-        "gallery": "Gallery",
-        "contacts": "Contacts"
+        "about": "About us",
+        "socials": "Socials"
     },
     "event": {
         "title": "Future matches",

@@ -6,7 +6,7 @@ export default function AboutUs() {
   const t = useTranslations("about");
 
   return (
-    <section className={styles.container}>
+    <section id="About" className={styles.container}>
       <div className={styles.content}>
         <ContentBlock
           title={t("title")}

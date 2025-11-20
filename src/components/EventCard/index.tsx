@@ -8,7 +8,7 @@ import BetPopup from "../Popup"; // подключаем попап
 import { useTranslations } from "next-intl";
 
 const EventCard: React.FC<{ event: EventsProps }> = ({ event }) => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState<any>(null);
   const t = useTranslations("event");
 
   const openPopup = () => setIsPopupOpen(true);
@@ -51,7 +51,16 @@ const EventCard: React.FC<{ event: EventsProps }> = ({ event }) => {
         </button>
       </div>
 
-      {isPopupOpen && <BetPopup onClose={closePopup} />}
+      {isPopupOpen && <BetPopup match={{
+        team1: {
+          name: event.game.team1.name,
+          logo: event.game.team1.imageSrc,
+        },
+        team2: {
+          name: event.game.team2.name,
+          logo: event.game.team2.imageSrc,
+        },
+      }} onClose={closePopup} />}
     </div>
   );
 };

@@ -1,19 +1,19 @@
-import styles from "./events.module.css";
+import styles from "./schedule.module.css";
 import { events } from "@/content/events";
-import EventCard from "../EventCard";
+import ScheduleCard from "../../../components/ScheduleCards";
 import { useTranslations } from "next-intl";
 
-const Events = () => {
+const Schedule = () => {
     const t = useTranslations("event");
 
     return (
         <section className={styles.container}>
-            <div id="event" className={styles.content}>
+            <div className={styles.content}>
                 <h1>{t("title")}</h1>
                 <div className={styles.eventsWrapper}>
                     <div className={styles.eventsList}>
                         {events.map((event, index) => (
-                            <EventCard key={index} event={event} />
+                            <ScheduleCard key={index} event={event} />
                         ))}
                     </div>
                 </div>
@@ -22,4 +22,4 @@ const Events = () => {
     );
 };
 
-export default Events;
+export default Schedule;

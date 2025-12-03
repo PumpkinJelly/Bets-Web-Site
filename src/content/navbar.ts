@@ -24,12 +24,12 @@ export function useNavbarLinks(): NavbarLink[] {
       link: "/#"
     },
     {
-      name: t("gallery"),
-      link: "/#"
+      name: t("about"),
+      link: "/#about"
     },
     {
-      name: t("contacts"),
-      link: "/#"
+      name: t("socials"),
+      link: "/#footer"
     }
   ];
 }

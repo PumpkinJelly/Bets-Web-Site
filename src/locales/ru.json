@@ -3,8 +3,8 @@
     "schedule": "Расписание",
     "statistics": "Статистика",
     "news": "Новости",
-    "gallery": "Галерея",
-    "contacts": "Контакты"
+    "about": "О нас",
+    "socials": "Соц-сети"
   },
   "event": {
     "title": "Будущие матчи",

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./navbar.module.css";
-import { useNavbarLinks } from "@/content/navbar"; 
+import { useNavbarLinks } from "@/content/navbar";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import SocialLinks from "../SocialLinks";
@@ -11,7 +11,7 @@ import Switcher from "../Switcher";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navbarLinks = useNavbarLinks(); 
+  const navbarLinks = useNavbarLinks();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);

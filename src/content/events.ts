@@ -19,7 +19,7 @@ export const events: EventsProps[] = [
                 goal: 2
             },
             location: "Almaty",
-            date: "2021-10-10",
+            date: "2009-20-10",
             time: "19:00"
         },
         link: "/#"
@@ -37,8 +37,8 @@ export const events: EventsProps[] = [
                 goal: 2
             },
             location: "Almaty",
-            date: "2021-10-10",
-            time: "19:00"
+            date: "2011-11-12",
+            time: "11:00"
         },
         link: "/#"
     },
@@ -55,8 +55,8 @@ export const events: EventsProps[] = [
                 goal: 2
             },
             location: "Almaty",
-            date: "2021-10-10",
-            time: "19:00"
+            date: "2024-4-11",
+            time: "19:20"
         },
         link: "/#"
     },
@@ -73,8 +73,8 @@ export const events: EventsProps[] = [
                 goal: 2
             },
             location: "Almaty",
-            date: "2021-10-10",
-            time: "19:00"
+            date: "2020-10-10",
+            time: "11:00"
         },
         link: "/#"
     },

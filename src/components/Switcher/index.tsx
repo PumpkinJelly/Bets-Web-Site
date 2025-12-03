@@ -15,6 +15,7 @@ export default function LanguageSwitcher() {
   const languages = [
     { code: "ru", label: "RU" },
     { code: "en", label: "EN" },
+    { code: "", label: "KZ...(Soon)" },
   ];
 
   // Закрытие меню при клике вне

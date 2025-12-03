@@ -11,6 +11,7 @@ import Features from '../Features';
 import Services from '../Services';
 
 const Offerings = () => {
+
     return (
         <section className={styles.container}>
             <div className={styles.content}>

@@ -1,0 +1,61 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eventsWrapper {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.eventsWrapper:hover {
+    scrollbar-color: var(--accentColor) transparent;
+}
+
+.eventsWrapper::-webkit-scrollbar {
+    height: 2px;
+}
+
+.eventsWrapper::-webkit-scrollbar-thumb {
+    background: var(--accentColor);
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.eventsWrapper:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+
+.eventsWrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.eventsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}

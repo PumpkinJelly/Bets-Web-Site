@@ -1,0 +1,125 @@
+/* --- VARIABLES --- */
+.container {
+    --bg-dark: #0f1216;
+    /* Очень темный фон */
+    --bg-card: #1c2128;
+    /* Фон карточек */
+    --bg-hover: #242a33;
+    --accent: #00ff88;
+    /* Неоновый зеленый */
+    --text-main: #ffffff;
+    --text-muted: #9ca3af;
+    --border: #2d3748;
+
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    min-height: 100vh;
+    color: var(--text-main);
+    padding: 2rem;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.pageTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.errorText {
+    color: #ef4444;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 50px;
+}
+
+/* --- GRID LAYOUT --- */
+.newsGrid {
+    display: grid;
+    /* 1 колонка на мобильных, 2 на десктопе */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* --- NEWS CARD --- */
+.newsCard {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.newsCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    background: var(--bg-hover);
+    box-shadow: 0 8px 15px rgba(0, 255, 136, 0.1);
+}
+
+.imageWrapper {
+    width: 100%;
+    /* Фиксированная высота для предотвращения CLS (Cumulative Layout Shift) */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.newsImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.newsCard:hover .newsImage {
+    transform: scale(1.05);
+}
+
+.content {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pubDate {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.newsTitle {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    /* Ограничиваем заголовок 3 строками */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.newsDescription {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    /* Ограничиваем описание 3 строками */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: auto;
+    /* Прижимает к низу, если контент разной высоты */
+}

@@ -17,7 +17,7 @@ export function useNavbarLinks(): NavbarLink[] {
     },
     {
       name: t("statistics"),
-      link: "/"
+      link: "/Stats"
     },
     {
       name: t("news"),

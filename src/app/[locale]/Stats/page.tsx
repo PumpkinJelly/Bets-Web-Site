@@ -94,7 +94,6 @@ export default function StatisticsPage() {
             <header className={styles.header}>
                 <div className={styles.headerContent}>
                     <h1 className={styles.pageTitle}>Football Statistics</h1>
-                    <div className={styles.leagueBadge}>Halyk Liga</div>
                 </div>
             </header>
 
@@ -153,11 +152,11 @@ export default function StatisticsPage() {
                                     <tr>
                                         <th className={styles.thRank}>#</th>
                                         <th className={styles.thTeam}>Team</th>
-                                        <th>MP</th> {/* Matches Played */}
-                                        <th>W</th>  {/* Won */}
-                                        <th>D</th>  {/* Drawn */}
-                                        <th>L</th>  {/* Lost */}
-                                        <th>GF</th> {/* Goals For (опционально) */}
+                                        <th>MP</th>
+                                        <th>W</th>
+                                        <th>D</th>
+                                        <th>L</th>
+                                        <th>GF</th>
                                         <th className={styles.thPts}>Pts</th>
                                     </tr>
                                 </thead>

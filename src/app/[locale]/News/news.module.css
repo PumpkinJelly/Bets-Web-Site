@@ -12,7 +12,7 @@
     --border: #2d3748;
 
     font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-dark);
+    background: var(--background);
     min-height: 100vh;
     color: var(--text-main);
     padding: 2rem;

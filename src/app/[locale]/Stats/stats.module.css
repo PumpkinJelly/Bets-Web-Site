@@ -13,7 +13,7 @@
     --border: #2d3748;
 
     font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-dark);
+    background: var(--background);
     min-height: 100vh;
     color: var(--text-main);
     padding: 1.5rem;
@@ -29,8 +29,9 @@
 
 .headerContent {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-direction: row;
 }
 
 .pageTitle {
@@ -87,7 +88,6 @@
     gap: 1rem;
     overflow-x: auto;
     padding-bottom: 1rem;
-    /* Скрываем скроллбар но оставляем функционал */
     scrollbar-width: none;
 }
 
@@ -107,7 +107,6 @@
 }
 
 .liveCard:hover {
-    transform: translateY(-3px);
     border-color: var(--accent);
 }
 
